@@ -2,13 +2,13 @@ import { fetchApi } from '@/helpers/api'
 
 import CategoryTemplate from '@/templates/CategoryTemplate'
 
-const Page = ({ quests }) => <CategoryTemplate title='Quests' array={quests} />
+const Page = ({ playbooks }) => <CategoryTemplate title='Playbooks' array={playbooks} />
 
 export async function getStaticProps() {
-  const [quests] = await Promise.all([fetchApi('/quests')])
+  const [playbooks] = await Promise.all([fetchApi('/playbooks')])
 
   return {
-    props: { quests },
+    props: { playbooks },
     revalidate: 1
   }
 }

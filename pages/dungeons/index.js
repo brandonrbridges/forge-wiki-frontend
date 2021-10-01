@@ -5,7 +5,7 @@ import CategoryTemplate from '@/templates/CategoryTemplate'
 const Page = ({ dungeons }) => <CategoryTemplate title='Dungeons' array={dungeons} />
 
 export async function getStaticProps() {
-  const [dungeons] = await Promise.all([fetchApi('/recipes')])
+  const [dungeons] = await Promise.all([fetchApi('/dungeons')])
 
   return {
     props: { dungeons },

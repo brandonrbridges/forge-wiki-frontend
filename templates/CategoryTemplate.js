@@ -28,8 +28,9 @@ const CategoryTemplate = ({ title, array }) => {
       <hr className='mt-4 mb-8' />
 
       <div className='gap-10 grid grid-cols-4'>
-        {alphabet.map(letter => (
-          <div id={letter}>
+        {alphabet.map((letter, key) => {
+          return (
+            <div id={letter}>
             <p className='font-bold text-white'>{letter.toUpperCase()}</p>
             <hr className='my-2' />
             <div className='gap-y-2 grid grid-cols-1'>
@@ -49,8 +50,9 @@ const CategoryTemplate = ({ title, array }) => {
                 }
               })}
             </div>
-          </div>
-        ))}
+          </div> 
+          )
+        })}
       </div>
     </Layout>
   )

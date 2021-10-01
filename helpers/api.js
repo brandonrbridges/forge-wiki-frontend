@@ -1,5 +1,5 @@
 const getStrapiURL = (path = '') => {
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${path}`
+  return `http://134.122.106.10:1337${path}`
 }
 
 const fetchApi = async (path) => {

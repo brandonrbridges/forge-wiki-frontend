@@ -5,6 +5,7 @@ import Layout from 'layouts/Layout'
 
 import { getStrapiMedia } from '@/helpers/media'
 
+import moment from 'moment'
 import { FaGem } from 'react-icons/fa'
 import { FiArrowLeft } from 'react-icons/fi'
 
@@ -22,7 +23,7 @@ const RecipeTemplate = ({ recipe }) => {
           <FiArrowLeft className='mr-2' /> Return to Recipes
         </a>
       </Link>
-      <div className='flex items-center'>
+      <div className='flex items-center mb-4'>
         {recipe.sprite && (
           <div className='bg-gray-900 mr-2 p-1 rounded'>
             <div className='block h-8 relative w-8'>
@@ -32,6 +33,7 @@ const RecipeTemplate = ({ recipe }) => {
         )}
         <h1 className='text-white'>{recipe.name}</h1>
       </div>
+      <p className='text-gray-500 text-xs'>Last updated: {moment(recipe.updated_at).fromNow()}</p>
       <hr className='my-4' />
   
       <div className='flex'>

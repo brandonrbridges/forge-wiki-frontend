@@ -8,11 +8,11 @@ import Image from '@/components/Image'
 const Page = () => {
   return (
     <Layout>
-      <h1>404: Page not found</h1>
+      <h1 className='text-white'>404: Page not found</h1>
 
       <hr className='my-4' />
 
-      <p>Let's go back home, shall we?</p>
+      <p className='text-gray-300'>Let's go back home, shall we?</p>
 
     </Layout>
   )

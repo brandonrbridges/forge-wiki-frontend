@@ -5,6 +5,7 @@ import Layout from 'layouts/Layout'
 
 import { getStrapiMedia } from '@/helpers/media'
 
+import moment from 'moment'
 import { FiArrowLeft } from 'react-icons/fi'
 import { RiHeartFill, RiSwordFill } from 'react-icons/ri'
 
@@ -22,6 +23,7 @@ const HeroTemplate = ({ hero }) => {
         </a>
       </Link>
       <h1 className='mb-4 text-white'>{hero.name}</h1>
+      <p className='text-gray-500 text-xs'>Last updated: {moment(hero.updated_at).fromNow()}</p>
       <hr className='my-4' />
       <div className='flex items-center'>
         <Sprite url={hero.sprite} />
@@ -37,10 +39,31 @@ const HeroTemplate = ({ hero }) => {
             <p className='italic mt-4 text-gray-300'>{hero.description}</p>
           </div>
         </div>
+        {hero.animatedSprite && <AnimatedSprite url={hero.animatedSprite} />}
+      </div>
+
+      <div className='mt-4'>
+        <p className='text-white'>Starting Playbook: {hero.startingPlaybook.name}</p>
+        <p>Available Playbooks:</p>
+        {hero.playbooks.map(playbook => (
+          <Link href={`/playbooks/${playbook.slug}`}>
+            <a className='text-gray-300 hover:text-gray-50'>
+              {playbook.name}
+            </a>
+          </Link>
+        ))}
       </div>
     </Layout>
   )
 }
+
+const AnimatedSprite = ({ url }) => (
+  <div className='bg-gray-900 mr-4 ml-24 p-2 rounded'>
+    <div className='block h-24 relative w-24'>
+      <Image src={getStrapiMedia(url)} className='rounded' layout='fill' objectFit='contain' />
+    </div>
+  </div>
+)
 
 const Sprite = ({ url }) => (
   <div className='bg-gray-900 mr-4 p-2 rounded'>
